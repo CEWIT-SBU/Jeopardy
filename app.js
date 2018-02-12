@@ -41,7 +41,7 @@ function BootApplication(app, next)
     app.set('port', process.env.PORT || 3000);
     app.use("/public", express.static(path.join(__dirname, 'public')));
     app.use('/Views/Templates', express.static(path.join(__dirname, 'Views/Templates')));
-    app.set('views', __dirname + '/Views');
+    app.set('views',path.join( __dirname, '/Views'));
     app.set('view engine', 'pug');
     app.engine('pug', require('pug').__express);
     app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
