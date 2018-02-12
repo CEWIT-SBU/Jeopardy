@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "private": false,
   "repository": "github.com/legacybass/jeopardy",
+  "license": "MIT",
   "scripts": {
     "start": "node app.js"
   },
