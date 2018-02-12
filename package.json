@@ -7,6 +7,7 @@
     "Matthew Cordaro"
   ],
   "repository": "github.com/legacybass/jeopardy",
+  "license": "MIT",
   "scripts": {
     "load": "npm install",
     "start": "node app.js"
