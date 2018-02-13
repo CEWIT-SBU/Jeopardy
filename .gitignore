@@ -17,3 +17,5 @@ obj
 *.orig
 .settings
 typings
+/.idea
+package-lock.json
