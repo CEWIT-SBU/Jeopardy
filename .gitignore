@@ -18,4 +18,3 @@ obj
 .settings
 typings
 /.idea
-package-lock.json
