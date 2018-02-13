@@ -6,7 +6,7 @@ var beautify = require('gulp-beautify');
 var jshint = require('gulp-jshint');
 var minimist = require('minimist');
 var gulpif = require('gulp-if');
-var jade = require('gulp-jade');
+var pug = require('gulp-pug');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var babel = require('gulp-babel');
@@ -293,44 +293,44 @@ gulp.task('watch_server_js', function () {
 
 
 // HTML related tasks
-gulp.task('jade', ['clear_jade'], function () {
+gulp.task('pug', ['clear_pug'], function () {
 	var dest = 'Views/Templates';
 
-	return gulp.src(['Views/Templates/**/*.jade'])
+	return gulp.src(['Views/Templates/**/*.pug'])
 		.pipe(gulpif(options.env === 'production',
-			jade({
+			pug({
 				compileDebug: false
 			}),
-			jade({
+			pug({
 				pretty: true
 			})))
 		.pipe(rename({ extname: '.html' }))
 		.pipe(gulp.dest(dest));
 });
 
-gulp.task('clear_jade', function (callback) {
+gulp.task('clear_pug', function (callback) {
 	del(['Views/Templates/**/*.html'], function (err) {
 		if(err)
 		{
-			console.log('Could not delete old jade-compiled html files.');
+			console.log('Could not delete old pug-compiled html files.');
 			callback(err);
 		}
 		else
 		{
-			console.log('Old jade templates deleted.');
+			console.log('Old pug templates deleted.');
 			callback();
 		}
 	});
 });
 
-gulp.task('watch_jade', function () {
-	return gulp.watch('Views/Templates/**/*.jade', ['jade']);
+gulp.task('watch_pug', function () {
+	return gulp.watch('Views/Templates/**/*.pug', ['pug']);
 });
 
 
 
 // Final build tasks
-gulp.task('clear_old', ['clear_css', 'clear_server_js', 'clear_js', 'clear_jade']);
-gulp.task('watch', ['watch_server_js', 'watch_js', 'watch_css', 'watch_jade']);
-gulp.task('default', ['server_js', 'client_js', 'less', 'jade']);
+gulp.task('clear_old', ['clear_css', 'clear_server_js', 'clear_js', 'clear_pug']);
+gulp.task('watch', ['watch_server_js', 'watch_js', 'watch_css', 'watch_pug']);
+gulp.task('default', ['server_js', 'client_js', 'less', 'pug']);
 

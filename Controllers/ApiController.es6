@@ -116,7 +116,7 @@ export default function Bootstrap (router) {
 	});
 
 	// Delete a category
-	router.del('/api/Data/Categories/:categoryid', (req, res, next) => {
+	router.delete('/api/Data/Categories/:categoryid', (req, res, next) => {
 		var userId = req.body.userid,
 			categoryId = req.params.categoryid;
 
@@ -170,7 +170,7 @@ export default function Bootstrap (router) {
 	});
 
 	// Delete a given category
-	router.del('/api/Data/Questions/:categoryid', (req, res, next) => {
+	router.delete('/api/Data/Questions/:categoryid', (req, res, next) => {
 		var userId = req.body.userid,
 			questionId = req.body.questionid,
 			categoryId = req.params.categoryid;

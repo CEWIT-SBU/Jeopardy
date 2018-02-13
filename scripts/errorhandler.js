@@ -20,6 +20,8 @@ let defaultToastOptions = {
 	'preventDuplicates': true
 };
 
+toastr.options = defaultToastOptions;
+
 export default class MessageHandler {
 	constructor () {
 	}
